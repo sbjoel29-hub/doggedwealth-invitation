@@ -1,10 +1,164 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="refresh" content="0; url=invitation.html">
-  <title>Redirecting...</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>DOGGEDWEALTH Initiative 1.0 | Speaker Invitation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f5f7fc 0%, #eef2f6 100%);
+      color: #1a2c3e;
+      line-height: 1.5;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+    .invitation-container { max-width: 1000px; margin: 0 auto; }
+    .letter-card { background: #ffffff; border-radius: 32px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); overflow: hidden; }
+    .letter-header { background: linear-gradient(135deg, #1f3b4c 0%, #e67e22 100%); padding: 40px 48px; color: white; text-align: center; }
+    .logo-section { display: flex; justify-content: center; align-items: center; gap: 40px; margin-bottom: 24px; flex-wrap: wrap; }
+    .logo-item { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.12); backdrop-filter: blur(4px); padding: 10px 24px; border-radius: 60px; }
+    .logo-img { width: 48px; height: 48px; object-fit: contain; border-radius: 12px; background: white; padding: 6px; }
+    .logo-text { font-weight: 700; font-size: 1rem; color: white; }
+    .letter-header h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+    .letter-header .theme { font-size: 1.3rem; opacity: 0.95; border-top: 2px solid rgba(255,255,255,0.3); display: inline-block; padding-top: 12px; margin-top: 8px; }
+    .letter-body { padding: 48px; }
+    .date-ref { display: flex; justify-content: space-between; color: #6c7a8a; font-size: 0.85rem; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid #edf2f7; }
+    .greeting { font-size: 1.1rem; margin-bottom: 24px; color: #1f3b4c; }
+    .invitation-text { color: #2c4b5e; margin-bottom: 28px; line-height: 1.7; }
+    .highlight-text { background: #fef9f0; padding: 20px; border-radius: 20px; margin: 20px 0; border-left: 4px solid #e67e22; font-weight: 500; }
+    .event-details { background: #fef9f0; border-radius: 24px; padding: 28px; margin: 28px 0; }
+    .detail-row { display: flex; flex-wrap: wrap; gap: 24px; margin-bottom: 20px; }
+    .detail-item { flex: 1; display: flex; align-items: center; gap: 12px; }
+    .detail-item i { width: 32px; color: #e67e22; font-size: 1.2rem; }
+    .topics-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin: 24px 0; }
+    .topic-pill { background: white; border: 1px solid #e2e8f0; border-radius: 60px; padding: 10px 20px; font-size: 0.85rem; font-weight: 500; display: flex; align-items: center; gap: 10px; transition: all 0.2s; }
+    .topic-pill i { color: #e67e22; width: 20px; }
+    .topic-pill:hover { background: #fef5e8; border-color: #e67e22; }
+    .note-box { background: #eef2ff; border-left: 4px solid #e67e22; padding: 20px 24px; border-radius: 16px; margin: 28px 0; }
+    .offer-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin: 24px 0; }
+    .offer-item { display: flex; align-items: center; gap: 12px; padding: 8px 0; }
+    .offer-item i { color: #27ae60; width: 24px; }
+    .rsvp-section { background: #f8fafc; border-radius: 20px; padding: 28px; margin: 32px 0 24px; text-align: center; border: 1px solid #e2e8f0; }
+    .btn-primary { background: #e67e22; color: white; border: none; padding: 14px 36px; border-radius: 50px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.2s; margin: 8px; display: inline-flex; align-items: center; gap: 10px; }
+    .btn-primary:hover { background: #cf711f; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(230,126,34,0.3); }
+    .btn-secondary-outline { background: transparent; border: 1.5px solid #94a3b8; color: #64748b; padding: 14px 36px; border-radius: 50px; font-weight: 600; font-size: 1rem; cursor: pointer; margin: 8px; display: inline-flex; align-items: center; gap: 10px; transition: 0.2s; }
+    .btn-secondary-outline:hover { border-color: #e74c3c; color: #e74c3c; background: #fee2e2; }
+    .signature { margin-top: 40px; padding-top: 24px; border-top: 1px solid #edf2f7; }
+    .footer-note { background: #1f3b4c; color: #bfd7e4; padding: 24px; text-align: center; font-size: 0.8rem; }
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: center; }
+    .modal-content { background: white; max-width: 500px; width: 90%; border-radius: 32px; padding: 32px; position: relative; animation: slideUp 0.3s ease; }
+    @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .modal-content input, .modal-content textarea { width: 100%; padding: 14px; margin: 12px 0; border: 1px solid #ddd; border-radius: 60px; font-family: inherit; }
+    .modal-content textarea { border-radius: 20px; resize: vertical; }
+    .modal-buttons { display: flex; gap: 12px; justify-content: flex-end; margin-top: 20px; }
+    .close-modal { position: absolute; top: 20px; right: 24px; font-size: 1.5rem; cursor: pointer; color: #94a3b8; }
+    .toast { position: fixed; bottom: 30px; right: 30px; background: #27ae60; color: white; padding: 12px 24px; border-radius: 50px; z-index: 2001; animation: fadeIn 0.3s; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateX(100%); } to { opacity: 1; transform: translateX(0); } }
+    .print-btn { position: fixed; bottom: 30px; left: 30px; background: #1f3b4c; color: white; border: none; width: 56px; height: 56px; border-radius: 50%; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 100; }
+    @media (max-width: 700px) { .letter-header { padding: 30px 20px; } .letter-body { padding: 28px; } .detail-row { flex-direction: column; } }
+    @media print { body { background: white; padding: 0; } .print-btn, .modal, .toast { display: none; } .letter-card { box-shadow: none; } }
+  </style>
 </head>
 <body>
-  <p>Redirecting to invitation... <a href="invitation.html">Click here</a></p>
+<div class="invitation-container">
+  <div class="letter-card">
+    <div class="letter-header">
+      <div class="logo-section">
+        <div class="logo-item"><img src="OSEF-logo.jpg" alt="OSEF Logo" class="logo-img" onerror="this.src='https://placehold.co/200x80?text=OSEF'"><span class="logo-text">OSEF</span></div>
+        <div class="logo-item"><img src="Main-logo.png" alt="Main Contents Co. Ltd." class="logo-img" onerror="this.src='https://placehold.co/200x80?text=Main+Contents'"><span class="logo-text">Main Contents Co.</span></div>
+      </div>
+      <h1>DOGGEDWEALTH INITIATIVE 1.0</h1>
+      <div class="theme">"Be Impactful and Valuable"</div>
+      <p style="margin-top: 16px; opacity: 0.9;">Leadership Masterclass for Young Champions | Abuja, August 2026</p>
+    </div>
+    <div class="letter-body">
+      <div class="date-ref"><span><i class="far fa-calendar-alt"></i> <span id="currentDate"></span></span><span><i class="fas fa-hashtag"></i> Ref: OSEF/DW/SPK/2026/001</span></div>
+      <div class="greeting"><strong>Dear Esteemed Speaker,</strong></div>
+      <div class="invitation-text">On behalf of the <strong>Outside School Education Foundation (OSEF)</strong> and <strong>Main Contents Co. Ltd.</strong>, it is our distinct honor and privilege to invite you as a <strong>distinguished speaker</strong> at the inaugural <strong>DOGGEDWEALTH INITIATIVE 1.0 Leadership Masterclass</strong>.</div>
+      <div class="highlight-text"><i class="fas fa-star" style="color: #e67e22; margin-right: 10px;"></i> This transformative event is designed to inspire and equip young leaders (ages 10–18) with the mindset, values, and practical skills to become impactful, valuable, and future-ready champions. We expect over <strong>500+ students, educators, and young leaders</strong> from our network of partner schools across Nigeria.</div>
+      <div class="event-details">
+        <h3 style="margin-bottom: 16px;"><i class="fas fa-info-circle"></i> Event Details</h3>
+        <div class="detail-row">
+          <div class="detail-item"><i class="fas fa-map-marker-alt"></i> <span><strong>Venue:</strong> Abuja, Nigeria (Physical + Virtual Live Stream)</span></div>
+          <div class="detail-item"><i class="far fa-calendar"></i> <span><strong>Date:</strong> August 2026 (Date to be confirmed with speakers)</span></div>
+          <div class="detail-item"><i class="fas fa-users"></i> <span><strong>Audience:</strong> 500+ Students, Teachers, Young Leaders</span></div>
+        </div>
+      </div>
+      <h3><i class="fas fa-chalkboard"></i> Event Topics Outline</h3>
+      <div class="topics-grid">
+        <div class="topic-pill"><i class="fas fa-dumbbell"></i> The Power of a Dogged Mindset</div>
+        <div class="topic-pill"><i class="fas fa-bullseye"></i> Discovering Your Purpose Early</div>
+        <div class="topic-pill"><i class="fas fa-chart-line"></i> Growth Mindset vs Fixed Mindset</div>
+        <div class="topic-pill"><i class="fas fa-user-check"></i> Self-Leadership: Leading Yourself</div>
+        <div class="topic-pill"><i class="fas fa-microphone-alt"></i> Confidence & Overcoming Fear</div>
+        <div class="topic-pill"><i class="fas fa-star"></i> What Does It Mean to Be Valuable?</div>
+        <div class="topic-pill"><i class="fas fa-puzzle-piece"></i> Problem Solving & Critical Thinking</div>
+        <div class="topic-pill"><i class="fas fa-comments"></i> Communication Skills for Influence</div>
+        <div class="topic-pill"><i class="fas fa-users"></i> Leadership in Action</div>
+        <div class="topic-pill"><i class="fas fa-lightbulb"></i> Creativity & Innovation</div>
+        <div class="topic-pill"><i class="fas fa-laptop-code"></i> Digital Skills & the Future</div>
+        <div class="topic-pill"><i class="fas fa-chart-simple"></i> DOGGEDWEALTH Explained</div>
+        <div class="topic-pill"><i class="fas fa-piggy-bank"></i> Financial Literacy for Students</div>
+        <div class="topic-pill"><i class="fas fa-hand-holding-heart"></i> Becoming a Person of Impact</div>
+        <div class="topic-pill"><i class="fas fa-rocket"></i> Turning Passion into Opportunities</div>
+        <div class="topic-pill"><i class="fas fa-id-card"></i> Building a Personal Brand Early</div>
+        <div class="topic-pill"><i class="fas fa-tree"></i> Legacy Thinking</div>
+      </div>
+      <div class="note-box"><i class="fas fa-envelope"></i> <strong>Note on Your Speaking Topic:</strong><p style="margin-top: 12px;">Your specific discussion topic will be carefully selected based on your expertise and sent directly to your <strong>email address</strong> after you confirm your participation.</p></div>
+      <div class="rsvp-section">
+        <i class="fas fa-microphone-alt" style="font-size: 2rem; color: #e67e22; margin-bottom: 12px;"></i>
+        <h3>Accept This Invitation</h3>
+        <p>Please confirm your participation by clicking the appropriate button below.</p>
+        <button class="btn-primary" id="acceptBtn"><i class="fas fa-check-circle"></i> I Accept the Invitation</button>
+        <button class="btn-secondary-outline" id="declineBtn"><i class="fas fa-times-circle"></i> I Regretfully Decline</button>
+      </div>
+      <div class="signature">
+        <p>Yours sincerely,</p>
+        <p style="font-weight: 700; margin-top: 16px;">The OSEF Leadership Team</p>
+        <p><strong>Outside School Education Foundation (OSEF)</strong></p>
+        <p style="margin-top: 16px; font-size: 0.85rem;"><i class="fas fa-envelope"></i> sbjoel29@gmail.com</p>
+      </div>
+    </div>
+    <div class="footer-note"><p>DOGGEDWEALTH INITIATIVE 1.0 — Be Impactful and Valuable | Abuja, August 2026</p></div>
+  </div>
+</div>
+<button class="print-btn" id="printBtn" title="Print Invitation"><i class="fas fa-print"></i></button>
+<div id="responseModal" class="modal"><div class="modal-content"><span class="close-modal" id="closeModalBtn">&times;</span><h3 id="modalTitle">Confirm Your Response</h3><p id="modalDesc">Please provide your details so we can send your assigned speaking topic.</p><input type="text" id="speakerName" placeholder="Full Name" required><input type="email" id="speakerEmail" placeholder="Your Email Address" required><textarea id="speakerMessage" rows="3" placeholder="Optional message"></textarea><div class="modal-buttons"><button class="btn-secondary-outline" id="cancelModalBtn">Cancel</button><button class="btn-primary" id="submitResponseBtn">Send Response</button></div></div></div>
+<script>
+  document.getElementById('currentDate').innerText = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  let currentResponse = null;
+  const modal = document.getElementById('responseModal');
+  function showToast(msg, isErr){ let t=document.querySelector('.toast'); if(t) t.remove(); t=document.createElement('div'); t.className='toast'; t.style.background=isErr?'#e74c3c':'#27ae60'; t.innerHTML=`<i class="fas ${isErr?'fa-exclamation-triangle':'fa-check-circle'}"></i> ${msg}`; document.body.appendChild(t); setTimeout(()=>t.remove(),5000); }
+  function sendEmail(type,name,email,msg){
+    const subject=`DOGGEDWEALTH Initiative: ${type} from ${name}`;
+    let body=`Name: ${name}\nEmail: ${email}\nResponse: ${type}\n\n`;
+    if(type==="ACCEPT") body+=`I accept the invitation. Please send my speaking topic.\n\n`;
+    else body+=`I regretfully decline. Best wishes for the event.\n\n`;
+    if(msg) body+=`Message: ${msg}\n\n`;
+    body+=`Best regards,\n${name}`;
+    window.location.href=`mailto:sbjoel29@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    showToast(`Response prepared. Your email client will open. Please send.`);
+  }
+  document.getElementById('acceptBtn').onclick=()=>{ currentResponse="ACCEPT"; document.getElementById('modalTitle').innerText="✓ You Accept"; document.getElementById('modalDesc').innerText="Please provide your details. Your speaking topic will be sent via email."; modal.style.display="flex"; };
+  document.getElementById('declineBtn').onclick=()=>{ currentResponse="DECLINE"; document.getElementById('modalTitle').innerText="Regretfully Decline"; document.getElementById('modalDesc').innerText="Please provide your details to confirm."; modal.style.display="flex"; };
+  function closeModal(){ modal.style.display="none"; document.getElementById('speakerName').value=""; document.getElementById('speakerEmail').value=""; document.getElementById('speakerMessage').value=""; currentResponse=null; }
+  document.getElementById('closeModalBtn').onclick=closeModal;
+  document.getElementById('cancelModalBtn').onclick=closeModal;
+  window.onclick=(e)=>{ if(e.target===modal) closeModal(); };
+  document.getElementById('submitResponseBtn').onclick=()=>{
+    let name=document.getElementById('speakerName').value.trim();
+    let email=document.getElementById('speakerEmail').value.trim();
+    let msg=document.getElementById('speakerMessage').value;
+    if(!name) return showToast("Please enter your name.",true);
+    if(!email||!email.includes('@')) return showToast("Please enter a valid email.",true);
+    sendEmail(currentResponse,name,email,msg);
+    setTimeout(closeModal,500);
+  };
+  document.getElementById('printBtn').onclick=()=>window.print();
+</script>
 </body>
 </html>
